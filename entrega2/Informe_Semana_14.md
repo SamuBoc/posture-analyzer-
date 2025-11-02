@@ -395,51 +395,19 @@ Como estudiantes, esta reflexión nos enseñó que **desarrollar tecnología no 
 
 ## 5. Fundamentos Matemáticos y Computacionales
 
-### 5.1 Introducción
+### 5.1 Formulación del Problema
 
-En esta sección explicamos la base matemática detrás de nuestro sistema. Aunque somos estudiantes y estamos aprendiendo, intentamos justificar cada decisión técnica con fundamentos teóricos.
+Nuestro problema es un **problema de clasificación multiclase supervisada**:
 
-### 5.2 Formulación Matemática del Problema
+- **Entrada:** Secuencia de landmarks `L ∈ ℝ^(33×4)` extraídos por MediaPipe
+- **Salida:** Clase `y ∈ {caminarEspalda, caminarFrente, girar, levantarse, sentarse}`
+- **Objetivo:** Encontrar `f*(x) = argmax P(y = cₖ | x)` que maximice la clasificación correcta
 
-#### 5.2.1 Definición Formal
-
-Nuestro problema puede formularse matemáticamente como un **problema de clasificación multiclase supervisada sobre datos de series temporales**.
-
-**Entrada:**
-- Una secuencia de frames de video: `V = {f₁, f₂, ..., fₙ}`
-- Cada frame `fᵢ` contiene una imagen `I ∈ ℝ^(H×W×3)` (altura × ancho × RGB)
-
-**Procesamiento intermedio (MediaPipe):**
-- Extracción de landmarks: `L = {l₁, l₂, ..., lₙ}`
-- Cada `lᵢ ∈ ℝ^(33×4)` donde cada landmark tiene coordenadas `(x, y, z, visibility)`
-
-**Salida:**
-- Una clase `y ∈ C = {C₁, C₂, C₃, C₄, C₅}`
-- Donde `C₁ = caminarEspalda`, `C₂ = caminarFrente`, `C₃ = girar`, `C₄ = levantarse`, `C₅ = sentarse`
-
-**Objetivo:**
-Encontrar una función `f: ℝ^(33×4×n) → {1, 2, 3, 4, 5}` tal que:
-
-```
-f*(x) = argmax P(y = cₖ | x)
-         k∈{1,2,3,4,5}
-```
-
-Es decir, queremos la función que maximice la probabilidad de clasificar correctamente la actividad dado el input de landmarks.
-
-#### 5.2.2 ¿Por qué es un Problema Complejo de Ingeniería?
-
-Este no es un problema trivial por varias razones:
-
-1. **Alta dimensionalidad:** Cada frame tiene 132 dimensiones (33 landmarks × 4 valores), y trabajamos con secuencias temporales.
-
-2. **Variabilidad temporal:** La misma actividad puede realizarse a diferentes velocidades.
-
-3. **Similitud entre clases:** "Levantarse" y "sentarse" son movimientos muy similares (uno es el inverso del otro).
-
-4. **Ruido en los datos:** MediaPipe no siempre detecta perfectamente (visibilidad varía).
-
-5. **Generalización:** El modelo debe funcionar en frames que nunca ha visto.
+**Complejidad del problema:**
+- Alta dimensionalidad (132 valores base por frame)
+- Variabilidad temporal (diferentes velocidades de ejecución)
+- Similitud entre clases ("levantarse" vs "sentarse")
+- Ruido en detección de MediaPipe
 
 ### 5.3 Preprocesamiento y Feature Engineering
 
