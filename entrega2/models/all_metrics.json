@@ -1,0 +1,155 @@
+[
+  {
+    "model_name": "Random Forest",
+    "accuracy": 0.7663174858984689,
+    "precision": 0.7761692284980235,
+    "recall": 0.7663174858984689,
+    "f1_score": 0.7450356980961808,
+    "confusion_matrix": [
+      [
+        245,
+        0,
+        24,
+        0,
+        0
+      ],
+      [
+        0,
+        249,
+        9,
+        0,
+        0
+      ],
+      [
+        12,
+        64,
+        93,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        71,
+        157
+      ],
+      [
+        0,
+        0,
+        0,
+        24,
+        293
+      ]
+    ],
+    "classes": [
+      "caminarEspalda",
+      "caminarFrente",
+      "girar",
+      "levantarse",
+      "sentarse"
+    ]
+  },
+  {
+    "model_name": "SVM",
+    "accuracy": 0.7574536663980661,
+    "precision": 0.7655880263247526,
+    "recall": 0.7574536663980661,
+    "f1_score": 0.7546043597069495,
+    "confusion_matrix": [
+      [
+        247,
+        0,
+        22,
+        0,
+        0
+      ],
+      [
+        0,
+        255,
+        3,
+        0,
+        0
+      ],
+      [
+        17,
+        0,
+        152,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        81,
+        87,
+        60
+      ],
+      [
+        0,
+        0,
+        5,
+        113,
+        199
+      ]
+    ],
+    "classes": [
+      "caminarEspalda",
+      "caminarFrente",
+      "girar",
+      "levantarse",
+      "sentarse"
+    ]
+  },
+  {
+    "model_name": "XGBoost",
+    "accuracy": 0.7647058823529411,
+    "precision": 0.7605259127744246,
+    "recall": 0.7647058823529411,
+    "f1_score": 0.7462016610452585,
+    "confusion_matrix": [
+      [
+        243,
+        0,
+        26,
+        0,
+        0
+      ],
+      [
+        0,
+        246,
+        12,
+        0,
+        0
+      ],
+      [
+        15,
+        8,
+        143,
+        2,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        54,
+        174
+      ],
+      [
+        0,
+        0,
+        11,
+        43,
+        263
+      ]
+    ],
+    "classes": [
+      "caminarEspalda",
+      "caminarFrente",
+      "girar",
+      "levantarse",
+      "sentarse"
+    ]
+  }
+]
