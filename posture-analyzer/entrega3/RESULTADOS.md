@@ -151,8 +151,3 @@ Comparación con modelo original:
 4. `comparison_results.csv` - Comparación de métodos
 5. `feature_reduction_comparison.png` - Gráficos comparativos
 
----
-
-**Fecha:** Noviembre 2024
-**Proyecto:** Clasificación de Actividades Humanas con MediaPipe
-**Equipo:** [Tu equipo]
